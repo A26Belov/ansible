@@ -3,15 +3,15 @@ pipeline {
   label 'Ansible'
           }
 
-    stages {
-    /*
-        stage('Checkout') { // добавим новый Stage
+stages {
+
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: "git@github.com:A26Belov/ansible.git" // используем встроенный в Jenkins плагин Git для скачивания проекта из бранча main
+              git branch: 'main', url: "git@github.com:A26Belov/ansible.git" credentialsId: '3bca6740-84c9-4ef0-acb3-75be1a80d240' // используем встроенный в Jenkins плагин Git для скачивания проекта из бранча main
             }
         }
 
-    */      
+
         stage('Deploy') {
             steps {
                 sh 'ansible-playbook pl-book0.yml' // поскольку скрипты работают в одной папке, на втором шаге мы можем просто запустить плейбук
