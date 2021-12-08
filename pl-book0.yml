@@ -1,6 +1,6 @@
 ---
  - name: Test Connection
-   hosts: vm
+   hosts: all
    become: yes
 
    tasks:
