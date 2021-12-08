@@ -1,0 +1,27 @@
+---
+ - name: Install Apache
+   hosts: web
+   become: yes
+   
+   vars:
+     source_folder: ./mySite/
+     dest_folder:  /var/www/html
+   
+   tasks:
+   - name: Install Apache
+     yum: name=httpd state=latest
+     
+   - name: Start Apache
+     service: name=httpd state=started enabled=yes
+     notify: Restart Apache
+     
+     
+   - name: Print var Servers
+     debug: 
+       msg: "{{ ansible_nodename }}"
+     
+                 
+   handlers:
+   - name: Restart Apache
+     service: name=httpd state=restarted
+...
