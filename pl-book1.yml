@@ -13,6 +13,9 @@
      
    - name: Start Apache
      service: name=httpd state=started enabled=yes
+          
+   - name: Copy my IMG to serv
+     copy: src={{ source_folder }} dest={{ dest_folder }} mode=0555
      notify: Restart Apache
      
      
