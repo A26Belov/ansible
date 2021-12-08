@@ -10,6 +10,9 @@ staging ansible_host=192.168.100.83 ansible_user=root owner=staging83
 [Jenkins]
 jenkins ansible_host=192.168.100.81 owner=jenkins81
 
+[web:children]
+Testweb
+Stagingweb
 
 [vm:children]
 Testweb
