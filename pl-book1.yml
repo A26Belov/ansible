@@ -9,9 +9,6 @@
 
    tasks:
 
-   - name: Uninstall Apache
-     yum: name=httpd state=absent
-
    - name: Install Apache
      yum: name=httpd state=latest
 
