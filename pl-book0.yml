@@ -17,7 +17,11 @@
 
    - shell: timedatectl | grep NTP
      register: timeResults
-
    - debug:
        var: timeResults
+
+   - shell: df -h
+       var: diskResults
+   - debug:
+       var: diskResults
 ...
