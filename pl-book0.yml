@@ -10,7 +10,7 @@
    - Install NTP
      yum: name=ntp state=latest
 
-   - name: Start Apache
+   - name: Start NTP
      service: name=ntp state=started enabled=yes
 
    - shell: timedatectl set-ntp on
