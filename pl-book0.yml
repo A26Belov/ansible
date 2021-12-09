@@ -7,7 +7,7 @@
    - name: Ping Servers
      ping:
 
-   - shell: uptime
+   - shell: timedatectl status
      register: timeResults
 
    - debug:
