@@ -7,6 +7,7 @@
    - name: Ping Servers
      ping:
 
+   - shell: timedatectl force sync
    - shell: timedatectl status
      register: timeResults
 
