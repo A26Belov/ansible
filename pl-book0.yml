@@ -7,8 +7,15 @@
    - name: Ping Servers
      ping:
 
-   - shell: timedatectl force sync
-   - shell: timedatectl status
+   - Install NTP
+     yum: name=ntp state=latest
+
+   - name: Start Apache
+     service: name=ntp state=started enabled=yes
+
+   - shell: timedatectl set-ntp on
+
+   - shell: timedatectl | grep NTP
      register: timeResults
 
    - debug:
