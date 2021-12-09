@@ -7,7 +7,7 @@
    - name: Ping Servers
      ping:
 
-   - Install NTP
+   - name: Install NTP
      yum: name=ntp state=latest
 
    - name: Start NTP
