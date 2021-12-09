@@ -15,7 +15,7 @@
 
    - shell: timedatectl set-ntp on
 
-   - shell: timedatectl | grep NTP
+   - shell: timedatectl
      register: timeResults
 
    - debug:
