@@ -8,7 +8,7 @@
      ping:
 
    - name: Install NTP
-     yum: name=ntp state=latest
+     yum: name=ntp state=present
 
    - name: Start NTP
      service: name=ntpd state=started enabled=yes
