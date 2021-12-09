@@ -11,11 +11,11 @@
      yum: name=ntp state=latest
 
    - name: Start NTP
-     service: name=ntp state=started enabled=yes
+     service: name=ntpd state=started enabled=yes
 
    - shell: timedatectl set-ntp on
 
-   - shell: timedatectl
+   - shell: timedatectl | grep NTP
      register: timeResults
 
    - debug:
