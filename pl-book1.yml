@@ -2,32 +2,32 @@
  - name: Install Apache
    hosts: web
    become: yes
-   
+
    vars:
-     source_file: index.html
+     source_folder: ./site
      dest_folder:  /var/www/html
-   
+
    tasks:
-   
+
    - name: Uninstall Apache
      yum: name=httpd state=absent
-     
+
    - name: Install Apache
      yum: name=httpd state=latest
-     
+
    - name: Start Apache
      service: name=httpd state=started enabled=yes
-          
+
    - name: Copy my IMG to serv
-     copy: src={{ source_file }} dest={{ dest_folder }} mode=0555
+     copy: src={{ source_folder }}/index.html dest={{ dest_folder }} mode=0555
      notify: Restart Apache
-     
-     
+
+
    - name: Print var Servers
-     debug: 
+     debug:
        msg: "{{ ansible_nodename }}"
-     
-                 
+
+
    handlers:
    - name: Restart Apache
      service: name=httpd state=restarted

@@ -6,3 +6,10 @@
    tasks:
    - name: Ping Servers
      ping:
+
+   - shell: uptime
+     register: timeResults
+
+   - debug:
+       var: timeResults
+...

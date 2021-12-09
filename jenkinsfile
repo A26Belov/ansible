@@ -1,21 +1,27 @@
 pipeline {
+
     agent {
-  label 'Ansible'
-          }
+    label 'Ansible'
+    }
 
-stages {
-
-        stage('Checkout') {
+    stages {
+        stage('CSM') { 
             steps {
-              git branch: 'main', url: "git@github.com:A26Belov/ansible.git" credentialsId: '3bca6740-84c9-4ef0-acb3-75be1a80d240' // используем встроенный в Jenkins плагин Git для скачивания проекта из бранча main
+               git branch: 'main', url: 'git@github.com:A26Belov/ansible.git', credentialsId: '3bca6740-84c9-4ef0-acb3-75be1a80d240'
             }
         }
 
-
-        stage('Deploy') {
-            steps {
-                sh 'ansible-playbook pl-book0.yml' // поскольку скрипты работают в одной папке, на втором шаге мы можем просто запустить плейбук
+        stage('Check Connection Hosts') {
+            steps{
+              ansiblePlaybook colorized: true, credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.txt', playbook: 'pl-book0.yml'
             }
         }
+
+        stage('Execute Ansible') {
+            steps{
+              ansiblePlaybook colorized: true, credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.txt', playbook: 'pl-book1.yml'
+            }
+        }
+
     }
 }
