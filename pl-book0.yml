@@ -21,7 +21,7 @@
        var: timeResults
 
    - shell: df -h
-       register: diskResults
+     register: diskResults
    - debug:
        var: diskResults
 ...
