@@ -1,11 +1,10 @@
 pipeline {
-
     agent {
     label 'Ansible'
     }
 
     stages {
-        stage('CSM') { 
+        stage('CSM') {
             steps {
                git branch: 'main', url: 'git@github.com:A26Belov/ansible.git', credentialsId: '3bca6740-84c9-4ef0-acb3-75be1a80d240'
             }
