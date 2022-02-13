@@ -1,6 +1,6 @@
 ---
  - name: Test Connection
-   hosts: Master
+   hosts: web
    become: yes
 
    tasks:
