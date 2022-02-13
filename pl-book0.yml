@@ -1,6 +1,6 @@
 ---
  - name: Test Connection
-   hosts: web
+   hosts: Master
    become: yes
 
    tasks:
@@ -23,7 +23,7 @@
 
    - shell: df -h
      register: diskSpace
-     
+
    - debug:
        var: diskSpace
 ...
