@@ -15,13 +15,11 @@ pipeline {
               ansiblePlaybook colorized: true, credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.txt', playbook: 'pl-book0.yml'
             }
         }
-/*
+
         stage('Execute Ansible') {
             steps{
               ansiblePlaybook colorized: true, credentialsId: 'ssh-key', disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.txt', playbook: 'pl-book1.yml'
             }
         }
-*/
-
     }
 }
